@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
   Users, 
@@ -327,27 +328,27 @@ export default function UserManagement() {
               </div>
               
               <div className="flex gap-2">
-                <select
-                  value={statusFilter}
-                  onChange={(e) => setStatusFilter(e.target.value)}
-                  className="px-3 py-2 border rounded-md text-sm"
-                  aria-label="Filtrer par statut"
-                >
-                  <option value="all">Tous les statuts</option>
-                  <option value="active">Actifs</option>
-                  <option value="suspended">Suspendus</option>
-                </select>
+                <Select value={statusFilter} onValueChange={setStatusFilter}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Tous les statuts" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous les statuts</SelectItem>
+                    <SelectItem value="active">Actifs</SelectItem>
+                    <SelectItem value="suspended">Suspendus</SelectItem>
+                  </SelectContent>
+                </Select>
                 
-                <select
-                  value={roleFilter}
-                  onChange={(e) => setRoleFilter(e.target.value)}
-                  className="px-3 py-2 border rounded-md text-sm"
-                  aria-label="Filtrer par rôle"
-                >
-                  <option value="all">Tous les rôles</option>
-                  <option value="buyer">Acheteurs</option>
-                  <option value="seller">Vendeurs</option>
-                </select>
+                <Select value={roleFilter} onValueChange={setRoleFilter}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Tous les rôles" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous les rôles</SelectItem>
+                    <SelectItem value="buyer">Acheteurs</SelectItem>
+                    <SelectItem value="seller">Vendeurs</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
           </CardContent>

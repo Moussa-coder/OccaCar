@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Shield, 
   AlertTriangle,
@@ -341,41 +342,41 @@ export default function ModerationQueue() {
               </div>
               
               <div className="flex gap-2">
-                <select
-                  value={statusFilter}
-                  onChange={(e) => setStatusFilter(e.target.value)}
-                  className="px-3 py-2 border rounded-md text-sm"
-                  aria-label="Filtrer par statut"
-                >
-                  <option value="all">Tous les statuts</option>
-                  <option value="pending">En attente</option>
-                  <option value="approved">Approuvé</option>
-                  <option value="rejected">Rejeté</option>
-                </select>
+                <Select value={statusFilter} onValueChange={setStatusFilter}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Tous les statuts" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous les statuts</SelectItem>
+                    <SelectItem value="pending">En attente</SelectItem>
+                    <SelectItem value="approved">Approuvé</SelectItem>
+                    <SelectItem value="rejected">Rejeté</SelectItem>
+                  </SelectContent>
+                </Select>
                 
-                <select
-                  value={priorityFilter}
-                  onChange={(e) => setPriorityFilter(e.target.value)}
-                  className="px-3 py-2 border rounded-md text-sm"
-                  aria-label="Filtrer par priorité"
-                >
-                  <option value="all">Toutes priorités</option>
-                  <option value="high">Haute</option>
-                  <option value="medium">Moyenne</option>
-                  <option value="low">Faible</option>
-                </select>
+                <Select value={priorityFilter} onValueChange={setPriorityFilter}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Toutes priorités" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Toutes priorités</SelectItem>
+                    <SelectItem value="high">Haute</SelectItem>
+                    <SelectItem value="medium">Moyenne</SelectItem>
+                    <SelectItem value="low">Faible</SelectItem>
+                  </SelectContent>
+                </Select>
                 
-                <select
-                  value={typeFilter}
-                  onChange={(e) => setTypeFilter(e.target.value)}
-                  className="px-3 py-2 border rounded-md text-sm"
-                  aria-label="Filtrer par type"
-                >
-                  <option value="all">Tous types</option>
-                  <option value="listing">Annonces</option>
-                  <option value="user">Utilisateurs</option>
-                  <option value="message">Messages</option>
-                </select>
+                <Select value={typeFilter} onValueChange={setTypeFilter}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Tous types" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous types</SelectItem>
+                    <SelectItem value="listing">Annonces</SelectItem>
+                    <SelectItem value="user">Utilisateurs</SelectItem>
+                    <SelectItem value="message">Messages</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
           </CardContent>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Shield, 
   Search,
@@ -287,31 +288,31 @@ export default function SecurityLogs() {
               </div>
               
               <div className="flex gap-2">
-                <select
-                  value={severityFilter}
-                  onChange={(e) => setSeverityFilter(e.target.value)}
-                  className="px-3 py-2 border rounded-md text-sm"
-                  aria-label="Filtrer par sévérité"
-                >
-                  <option value="all">Toutes sévérités</option>
-                  <option value="error">Erreurs</option>
-                  <option value="warning">Avertissements</option>
-                  <option value="info">Informations</option>
-                </select>
+                <Select value={severityFilter} onValueChange={setSeverityFilter}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Toutes sévérités" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Toutes sévérités</SelectItem>
+                    <SelectItem value="error">Erreurs</SelectItem>
+                    <SelectItem value="warning">Avertissements</SelectItem>
+                    <SelectItem value="info">Informations</SelectItem>
+                  </SelectContent>
+                </Select>
                 
-                <select
-                  value={typeFilter}
-                  onChange={(e) => setTypeFilter(e.target.value)}
-                  className="px-3 py-2 border rounded-md text-sm"
-                  aria-label="Filtrer par type"
-                >
-                  <option value="all">Tous types</option>
-                  <option value="login_success">Connexions réussies</option>
-                  <option value="login_failed">Échecs de connexion</option>
-                  <option value="user_suspended">Utilisateurs suspendus</option>
-                  <option value="admin_action">Actions admin</option>
-                  <option value="suspicious_activity">Activité suspecte</option>
-                </select>
+                <Select value={typeFilter} onValueChange={setTypeFilter}>
+                  <SelectTrigger className="w-[200px]">
+                    <SelectValue placeholder="Tous types" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous types</SelectItem>
+                    <SelectItem value="login_success">Connexions réussies</SelectItem>
+                    <SelectItem value="login_failed">Échecs de connexion</SelectItem>
+                    <SelectItem value="user_suspended">Utilisateurs suspendus</SelectItem>
+                    <SelectItem value="admin_action">Actions admin</SelectItem>
+                    <SelectItem value="suspicious_activity">Activité suspecte</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
           </CardContent>

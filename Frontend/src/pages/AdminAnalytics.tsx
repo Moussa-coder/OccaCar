@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   TrendingUp, 
   TrendingDown,
@@ -209,17 +210,17 @@ export default function AdminAnalytics() {
             </div>
             
             <div className="flex items-center space-x-2">
-            <select
-              value={selectedPeriod}
-              onChange={(e) => setSelectedPeriod(e.target.value)}
-              className="px-3 py-2 border rounded-md text-sm"
-              aria-label="Sélectionner la période"
-            >
-              <option value="7d">7 derniers jours</option>
-              <option value="30d">30 derniers jours</option>
-              <option value="90d">3 derniers mois</option>
-              <option value="1y">1 an</option>
-            </select>
+            <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Sélectionner la période" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="7d">7 derniers jours</SelectItem>
+                <SelectItem value="30d">30 derniers jours</SelectItem>
+                <SelectItem value="90d">3 derniers mois</SelectItem>
+                <SelectItem value="1y">1 an</SelectItem>
+              </SelectContent>
+            </Select>
             
             <Button variant="outline" onClick={exportAnalytics}>
               <Download className="h-4 w-4 mr-2" />
