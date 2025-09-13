@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
+  <!-- Cercle de fond -->
+  <circle cx="100" cy="100" r="95" fill="url(#gradient)" stroke="url(#borderGradient)" stroke-width="2"/>
+  
+  <!-- Icône de voiture stylisée -->
+  <g transform="translate(50, 70)">
+    <!-- Corps de la voiture -->
+    <path d="M20 30 L80 30 L85 40 L85 60 L75 70 L25 70 L15 60 L15 40 Z" fill="white" stroke="url(#carStroke)" stroke-width="2"/>
+    
+    <!-- Roues -->
+    <circle cx="25" cy="70" r="8" fill="#333" stroke="white" stroke-width="2"/>
+    <circle cx="75" cy="70" r="8" fill="#333" stroke="white" stroke-width="2"/>
+    
+    <!-- Détails de la voiture -->
+    <rect x="25" y="40" width="50" height="20" fill="none" stroke="url(#carStroke)" stroke-width="1.5"/>
+    <line x1="50" y1="40" x2="50" y2="60" stroke="url(#carStroke)" stroke-width="1.5"/>
+    
+    <!-- Phares -->
+    <circle cx="20" cy="45" r="3" fill="#FFD700"/>
+    <circle cx="80" cy="45" r="3" fill="#FFD700"/>
+  </g>
+  
+  <!-- Texte "OCCAZ" -->
+  <text x="100" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    OCCAZ
+  </text>
+  
+  <!-- Texte "CAR" -->
+  <text x="100" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="normal" fill="white" opacity="0.9">
+    CAR
+  </text>
+  
+  <!-- Définitions des gradients -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1D4ED8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="carStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

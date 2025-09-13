@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* OccazCar Design System - Automotive Excellence */
+
+@layer base {
+  :root {
+    /* Core automotive brand colors */
+    --background: 0 0% 100%;
+    --foreground: 224 71% 4%;
+    
+    /* Card system for car listings */
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    --card-hover: 214 32% 97%;
+    
+    /* Popover system */
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    
+    /* Primary - Professional blue for trust */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 221 83% 48%;
+    --primary-light: 221 83% 90%;
+    
+    /* Secondary - Clean neutral */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 224 71% 4%;
+    
+    /* Accent - Energetic orange for CTAs */
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 98%;
+    --accent-hover: 25 95% 48%;
+    --accent-light: 25 95% 90%;
+    
+    /* Muted tones */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Status colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* UI Elements */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    
+    /* Design tokens */
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-hover)));
+    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53%), hsl(25 95% 53%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(var(--primary) / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(var(--primary) / 0.1), 0 2px 4px -2px hsl(var(--primary) / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--primary) / 0.1), 0 4px 6px -4px hsl(var(--primary) / 0.1);
+    --shadow-card: 0 4px 12px hsl(var(--primary) / 0.08);
+    --shadow-hover: 0 8px 25px hsl(var(--primary) / 0.15);
+    
+    /* Animations */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode automotive theme */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    
+    /* Dark cards */
+    --card: 224 71% 7%;
+    --card-foreground: 210 40% 98%;
+    --card-hover: 224 71% 10%;
+    
+    --popover: 224 71% 7%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Primary colors adjusted for dark */
+    --primary: 221 83% 58%;
+    --primary-foreground: 224 71% 4%;
+    --primary-hover: 221 83% 63%;
+    --primary-light: 221 83% 15%;
+    
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Accent orange for dark mode */
+    --accent: 25 95% 58%;
+    --accent-foreground: 224 71% 4%;
+    --accent-hover: 25 95% 63%;
+    --accent-light: 25 95% 15%;
+    
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    /* Status colors for dark */
+    --success: 142 76% 41%;
+    --warning: 38 92% 55%;
+    --destructive: 0 84% 65%;
+    
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 221 83% 58%;
+    
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-hover)));
+    --gradient-hero: linear-gradient(135deg, hsl(221 83% 58%), hsl(25 95% 58%));
+    --gradient-card: linear-gradient(180deg, hsl(224 71% 7%), hsl(224 71% 5%));
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+}
+
+@layer components {
+  /* Car card hover effects */
+  .car-card {
+    @apply transition-all duration-300 ease-in-out;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .car-card:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Hero gradient text */
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Loading animation */
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
