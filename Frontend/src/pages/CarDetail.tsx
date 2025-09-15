@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -111,6 +111,7 @@ const mockCarDetails = {
 
 export default function CarDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
   const [carData, setCarData] = useState(mockCarDetails);
@@ -169,6 +170,28 @@ export default function CarDetail() {
         description: "Le lien a été copié dans le presse-papiers",
       });
     }
+  };
+
+  const handleSecurePurchase = () => {
+    // Vérifier si l'utilisateur est connecté
+    const token = localStorage.getItem('token');
+    if (!token) {
+      toast({
+        title: "Connexion requise",
+        description: "Vous devez être connecté pour effectuer un achat sécurisé.",
+        variant: "destructive"
+      });
+      navigate('/login', { 
+        state: { 
+          message: 'Vous devez être connecté pour effectuer un achat sécurisé',
+          redirectTo: `/voiture/${id}/achat-securise`
+        } 
+      });
+      return;
+    }
+    
+    // Rediriger vers la page d'achat sécurisé
+    navigate(`/voiture/${id}/achat-securise`);
   };
 
   const nextImage = () => {
@@ -493,6 +516,38 @@ export default function CarDetail() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Achat Sécurisé OccazCar */}
+                    <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                      <div className="flex items-start space-x-3">
+                        <Shield className="h-6 w-6 text-green-600 mt-1" />
+                        <div>
+                          <h3 className="font-semibold text-green-800 mb-2">Achat Sécurisé OccazCar</h3>
+                          <p className="text-sm text-green-700 mb-3">
+                            Protégez votre achat avec notre système d'escrow. OccazCar retient l'argent 
+                            jusqu'à ce que vous confirmiez la réception satisfaisante du véhicule.
+                          </p>
+                          <div className="text-xs text-green-600 space-y-1">
+                            <div className="flex items-center space-x-2">
+                              <CheckCircle2 className="h-3 w-3" />
+                              <span>Paiement sécurisé vers OccazCar</span>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <CheckCircle2 className="h-3 w-3" />
+                              <span>Livraison du véhicule</span>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <CheckCircle2 className="h-3 w-3" />
+                              <span>7 jours d'inspection</span>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <CheckCircle2 className="h-3 w-3" />
+                              <span>Versement au vendeur après validation</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </TabsContent>
                   
                   <TabsContent value="financing" className="space-y-6 mt-6">
@@ -590,6 +645,17 @@ export default function CarDetail() {
                 {/* Contact Actions */}
                 <div className="space-y-3">
                   <Button 
+                    className="w-full bg-green-600 hover:bg-green-700" 
+                    size="lg"
+                    onClick={handleSecurePurchase}
+                    disabled={!carData.isAvailable}
+                  >
+                    <Shield className="h-5 w-5 mr-2" />
+                    Achat Sécurisé OccazCar
+                  </Button>
+                  
+                  <Button 
+                    variant="outline" 
                     className="w-full" 
                     size="lg"
                     onClick={handleContactWhatsApp}
@@ -658,22 +724,6 @@ export default function CarDetail() {
             </Card>
 
             {/* Safety Notice */}
-            <Card className="bg-muted/30">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-3">
-                  <Shield className="h-5 w-5 text-primary mt-0.5" />
-                  <div className="text-sm space-y-1">
-                    <div className="font-medium">Conseils sécurité</div>
-                    <ul className="text-muted-foreground space-y-1">
-                      <li>• Rencontrez le vendeur en personne</li>
-                      <li>• Inspectez le véhicule avant achat</li>
-                      <li>• Vérifiez les papiers du véhicule</li>
-                      <li>• Ne payez jamais à l'avance</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>

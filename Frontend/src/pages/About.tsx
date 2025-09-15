@@ -67,40 +67,15 @@ const values = [
 const stats = [
   { label: "Véhicules vendus", value: "12 547", icon: Car },
   { label: "Clients satisfaits", value: "8 923", icon: Users },
-  { label: "Années d'expérience", value: "15+", icon: Award },
+  { label: "Années d'expérience", value: "1+", icon: Award },
   { label: "Taux de satisfaction", value: "98%", icon: Star }
 ];
 
 const achievements = [
   {
-    year: "2009",
+    year: "2025",
     title: "Création d'OccazCar",
-    description: "Lancement de la plateforme avec une vision : démocratiser l'achat de voitures d'occasion."
-  },
-  {
-    year: "2012",
-    title: "Premier million d'euros",
-    description: "Atteinte du premier million d'euros de chiffre d'affaires grâce à la confiance de nos clients."
-  },
-  {
-    year: "2015",
-    title: "Expansion nationale",
-    description: "Déploiement de notre service dans toute la France avec plus de 50 partenaires."
-  },
-  {
-    year: "2018",
-    title: "Innovation technologique",
-    description: "Lancement de notre application mobile et de notre système de vérification 360°."
-  },
-  {
-    year: "2021",
-    title: "Certification ISO",
-    description: "Obtention de la certification ISO 9001 pour notre système de management qualité."
-  },
-  {
-    year: "2024",
-    title: "Leader du marché",
-    description: "OccazCar devient la référence française de la vente de voitures d'occasion en ligne."
+    description: "Lancement de la plateforme avec une vision : devenir l'intermédiaire de confiance entre acheteurs et vendeurs de voitures d'occasion."
   }
 ];
 
@@ -116,8 +91,8 @@ export default function About() {
               À propos d'<span className="gradient-text">OccazCar</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Depuis 2009, nous révolutionnons l'achat de voitures d'occasion en France. 
-              Notre mission : vous offrir la meilleure expérience d'achat automobile.
+              Depuis 2025, OccazCar est l'intermédiaire de confiance entre acheteurs et vendeurs de voitures d'occasion. 
+              Notre mission : faciliter et sécuriser chaque transaction automobile.
             </p>
           </div>
         </div>
@@ -147,8 +122,8 @@ export default function About() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Notre Histoire</h2>
               <p className="text-muted-foreground text-lg">
-                Une aventure qui a commencé par une simple idée : rendre l'achat de voitures d'occasion 
-                plus simple, plus sûr et plus transparent.
+                Une aventure qui a commencé par une simple idée : créer l'intermédiaire de confiance 
+                qui manquait entre acheteurs et vendeurs de voitures d'occasion.
               </p>
             </div>
 
@@ -166,6 +141,96 @@ export default function About() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Role as Intermediary */}
+      <section className="py-16 bg-muted/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">OccazCar : Votre Intermédiaire de Confiance</h2>
+              <p className="text-muted-foreground text-lg">
+                Nous facilitons les échanges entre acheteurs et vendeurs en garantissant transparence et sécurité.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card>
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mr-4">
+                      <Users className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-xl font-semibold">Pour les Acheteurs</h3>
+                  </div>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 text-success mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Véhicules vérifiés et authentifiés</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 text-success mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Protection de l'achat et garanties</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 text-success mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Accompagnement personnalisé</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 text-success mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Médiation en cas de litige</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 text-accent mr-4">
+                      <Car className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-xl font-semibold">Pour les Vendeurs</h3>
+                  </div>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 text-success mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Mise en relation avec des acheteurs qualifiés</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 text-success mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Évaluation et valorisation du véhicule</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 text-success mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Gestion sécurisée des paiements</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 text-success mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Support administratif complet</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-8 text-center">
+              <Card className="max-w-2xl mx-auto">
+                <CardContent className="p-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
+                    <Shield className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">Notre Engagement d'Intermédiaire</h3>
+                  <p className="text-muted-foreground">
+                    En tant qu'intermédiaire, nous nous engageons à créer un environnement de confiance où 
+                    chaque transaction se déroule dans la transparence, la sécurité et le respect mutuel 
+                    entre acheteurs et vendeurs.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
