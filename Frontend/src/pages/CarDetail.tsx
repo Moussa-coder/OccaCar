@@ -33,6 +33,7 @@ import {
   Zap
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Advertisement, PartnerAdvertisements } from "@/components/ui/advertisement";
 
 // Mock data - sera remplacé par un appel API
 const mockCarDetails = {
@@ -723,7 +724,12 @@ export default function CarDetail() {
               </CardContent>
             </Card>
 
-            {/* Safety Notice */}
+            {/* Advertisement Sidebar */}
+            <div className="space-y-6">
+              <Advertisement type="sidebar" />
+              <Advertisement type="sidebar" />
+              <PartnerAdvertisements />
+            </div>
           </div>
         </div>
       </div>

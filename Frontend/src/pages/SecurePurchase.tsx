@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { 
   Shield, 
@@ -14,13 +12,9 @@ import {
   Truck, 
   CheckCircle2, 
   Clock, 
-  AlertTriangle,
   Info,
   Lock,
-  Eye,
   MapPin,
-  Calendar,
-  Euro
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -38,13 +32,6 @@ const mockCarData = {
   images: ["https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800"]
 };
 
-const mockUserData = {
-  id: "user123",
-  firstName: "Jean",
-  lastName: "Dupont",
-  email: "jean.dupont@email.com",
-  phone: "06 12 34 56 78"
-};
 
 export default function SecurePurchase() {
   const { carId } = useParams();
@@ -53,8 +40,7 @@ export default function SecurePurchase() {
   
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [carData, setCarData] = useState(mockCarData);
-  const [userData, setUserData] = useState(mockUserData);
+  const [carData] = useState(mockCarData);
   
   // Données du formulaire
   const [formData, setFormData] = useState({

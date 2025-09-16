@@ -91,25 +91,27 @@ export function CarCard({
         </h3>
         
         {/* Details */}
-        <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-          <div className="flex items-center space-x-1">
-            <Calendar className="h-4 w-4" />
-            <span>{year}</span>
+        <div className="space-y-2 text-sm text-muted-foreground">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-1">
+              <Calendar className="h-4 w-4" />
+              <span>{year}</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <Gauge className="h-4 w-4" />
+              <span>{formatMileage(mileage)} km</span>
+            </div>
           </div>
           
-          <div className="flex items-center space-x-1">
-            <Gauge className="h-4 w-4" />
-            <span>{formatMileage(mileage)} km</span>
-          </div>
-          
-          <div className="flex items-center space-x-1">
-            <Fuel className="h-4 w-4" />
-            <span>{fuel}</span>
-          </div>
-          
-          <div className="flex items-center space-x-1">
-            <MapPin className="h-4 w-4" />
-            <span className="truncate">{location}</span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-1">
+              <Fuel className="h-4 w-4" />
+              <span>{fuel}</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <MapPin className="h-4 w-4" />
+              <span className="truncate">{location}</span>
+            </div>
           </div>
         </div>
         

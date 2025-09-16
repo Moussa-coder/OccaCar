@@ -18,7 +18,9 @@ import {
   Shield,
   BarChart3,
   UserCheck,
-  Settings
+  Settings,
+  FileText,
+  Mail
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -195,7 +197,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/admin/users'}>
             <CardContent className="p-6">
               <div className="flex items-center space-x-3">
@@ -233,6 +235,20 @@ export default function AdminDashboard() {
                 <div>
                   <h3 className="font-semibold">Queue de Modération</h3>
                   <p className="text-sm text-muted-foreground">Modérer le contenu</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/admin/demandes'}>
+            <CardContent className="p-6">
+              <div className="flex items-center space-x-3">
+                <div className="p-3 bg-purple-100 rounded-lg">
+                  <Mail className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Gestion des Demandes</h3>
+                  <p className="text-sm text-muted-foreground">Assurance, service, livraison</p>
                 </div>
               </div>
             </CardContent>

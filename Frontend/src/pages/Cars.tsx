@@ -21,7 +21,8 @@ import {
   Gauge,
   Eye,
   Heart,
-  Star
+  Star,
+  ArrowLeft
 } from "lucide-react";
 
 // Mock data - sera remplacé par des appels API
@@ -217,7 +218,7 @@ export default function Cars() {
 
   // Filter and sort logic
   useEffect(() => {
-    let filtered = cars.filter(car => {
+    const filtered = cars.filter(car => {
       const matchesSearch = car.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            car.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            car.model.toLowerCase().includes(searchTerm.toLowerCase());
@@ -291,6 +292,16 @@ export default function Cars() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Back Button */}
+      <div className="container mx-auto px-4 pt-6">
+        <Button variant="ghost" asChild className="mb-4">
+          <Link to="/">
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Retour à l'accueil
+          </Link>
+        </Button>
+      </div>
+
       {/* Header */}
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
@@ -475,10 +486,11 @@ export default function Cars() {
                   ? "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
                   : "space-y-4"
               }>
-                {filteredCars.map((car) => (
-                  viewMode === "grid" ? (
-                    <CarCard key={car.id} {...car} />
-                  ) : (
+                {filteredCars.map((car, index) => (
+                  <div key={car.id}>
+                    {viewMode === "grid" ? (
+                      <CarCard {...car} />
+                    ) : (
                     <Card key={car.id} className="overflow-hidden">
                       <CardContent className="p-0">
                         <div className="flex flex-col md:flex-row">
@@ -557,7 +569,8 @@ export default function Cars() {
                         </div>
                       </CardContent>
                     </Card>
-                  )
+                  )}
+                  </div>
                 ))}
               </div>
             ) : (

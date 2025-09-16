@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { CarCard } from "@/components/ui/car-card";
+import { Advertisement, AdvertisementGrid, PartnerAdvertisements } from "@/components/ui/advertisement";
 import { 
   Search, 
   Car as CarIcon, 
@@ -18,7 +19,8 @@ import {
   CreditCard,
   Wrench,
   MapPin,
-  TrendingUp
+  TrendingUp,
+  Lock
 } from "lucide-react";
 
 // Mock data - sera remplacé par des appels API
@@ -105,9 +107,9 @@ const features = [
     description: "Chaque véhicule passe par notre processus de vérification rigoureux pour garantir sa qualité et son authenticité."
   },
   {
-    icon: CreditCard,
-    title: "Financement Facile",
-    description: "Solutions de financement adaptées à votre budget avec nos partenaires bancaires de confiance."
+    icon: Lock,
+    title: "Achat Sécurisé",
+    description: "Système d'escrow pour protéger votre paiement jusqu'à la livraison et inspection du véhicule."
   },
   {
     icon: Phone,
@@ -350,6 +352,24 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Advertisement Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Services complémentaires</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Complétez votre achat avec nos services partenaires
+            </p>
+          </div>
+          
+          <AdvertisementGrid count={3} type="card" className="mb-12" />
+          
+          <div className="max-w-4xl mx-auto">
+            <Advertisement type="hero" />
           </div>
         </div>
       </section>

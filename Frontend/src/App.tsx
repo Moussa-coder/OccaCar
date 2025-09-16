@@ -29,6 +29,10 @@ import Cars from "./pages/Cars";
 import SecurePurchase from "./pages/SecurePurchase";
 import TransactionTracking from "./pages/TransactionTracking";
 import SellerTransactions from "./pages/SellerTransactions";
+import Insurance from "./pages/Insurance";
+import AfterSalesService from "./pages/AfterSalesService";
+import Delivery from "./pages/Delivery";
+import AdminRequests from "./pages/AdminRequests";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -115,6 +119,10 @@ const App = () => {
                   <Route path="/voiture/:id/achat-securise" element={<SecurePurchase />} />
                   <Route path="/transaction/:id/tracking" element={<TransactionTracking />} />
                   <Route path="/mes-transactions" element={<SellerTransactions />} />
+                  <Route path="/assurance" element={<Insurance />} />
+                  <Route path="/service-apres-vente" element={<AfterSalesService />} />
+                  <Route path="/livraison" element={<Delivery />} />
+                  <Route path="/admin/demandes" element={<AdminRequests />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>

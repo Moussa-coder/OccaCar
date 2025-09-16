@@ -20,9 +20,10 @@ import {
   Calculator,
   MessageCircle,
   Eye,
-  Heart
+  Heart,
+  ArrowLeft
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -165,13 +166,13 @@ const processSteps = [
 
 export default function Services() {
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleServiceClick = (serviceTitle: string) => {
     // Actions spécifiques selon le service
     switch (serviceTitle) {
       case "Recherche Avancée":
-        // Rediriger vers la page des voitures
-        window.location.href = '/voitures';
+        navigate('/voitures');
         break;
       case "Vérification Véhicule":
         toast({
@@ -180,10 +181,7 @@ export default function Services() {
         });
         break;
       case "Entretien & Réparation":
-        toast({
-          title: "Service d'Entretien",
-          description: "Contactez-nous au 01 23 45 67 89 pour obtenir un devis gratuit pour l'entretien de votre véhicule.",
-        });
+        navigate('/service-apres-vente');
         break;
       case "Assistance 24/7":
         toast({
@@ -198,10 +196,7 @@ export default function Services() {
         });
         break;
       case "Livraison à Domicile":
-        toast({
-          title: "Livraison à Domicile",
-          description: "Contactez-nous au 01 23 45 67 89 pour organiser la livraison de votre véhicule.",
-        });
+        navigate('/livraison');
         break;
       default:
         toast({
